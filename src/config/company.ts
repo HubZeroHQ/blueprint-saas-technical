@@ -6,7 +6,8 @@ export const company = {
   legalName: "Nexora Systems, Inc.",
   founded: "2019",
   headquarters: "Austin, Texas",
-  companySize: "180+ employees",
+  companySize: "180+",
+  cloudEnvironments: "12,000+",
 
   mission:
     "We believe infrastructure should be a source of leverage, not a source of toil. Nexora exists so engineering teams spend their time building products, not babysitting the systems underneath them.",

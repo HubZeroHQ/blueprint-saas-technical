@@ -25,8 +25,8 @@ export const metadata: Metadata = createMetadata({
 const STATS = [
   { value: company.founded, label: "Founded" },
   { value: company.headquarters, label: "Headquarters" },
-  { value: company.companySize, label: "Team size" },
-  { value: "180+", label: "Engineering teams served" },
+  { value: company.companySize, label: "Employees" },
+  { value: company.cloudEnvironments, label: "Cloud environments" },
 ];
 
 export default function AboutPage() {
