@@ -2,7 +2,7 @@ import type { HTMLAttributes } from "react";
 
 import { cn } from "@/utils/cn";
 
-interface PageProps extends HTMLAttributes<HTMLDivElement> {}
+type PageProps = HTMLAttributes<HTMLDivElement>;
 
 export function Page({
   className,
@@ -11,6 +11,7 @@ export function Page({
 }: PageProps) {
   return (
     <main
+      id="main-content"
       className={cn(
         "min-h-screen",
         className

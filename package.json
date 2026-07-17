@@ -1,7 +1,24 @@
 {
-  "name": "blueprint-base",
-  "version": "0.1.0",
+  "name": "blueprint-saas-technical",
+  "version": "1.0.0",
   "private": true,
+  "description": "Nexora Systems — a HubZero Focused Blueprint for a B2B SaaS product, built with the Technical design language.",
+  "keywords": [
+    "hubzero",
+    "blueprint",
+    "saas",
+    "nextjs",
+    "tailwindcss"
+  ],
+  "author": {
+    "name": "HubZero",
+    "url": "https://hubzero.in"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HubZeroHQ/blueprint-saas-technical.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

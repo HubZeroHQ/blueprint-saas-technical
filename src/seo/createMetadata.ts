@@ -13,13 +13,17 @@ interface CreateMetadataOptions {
 export function createMetadata({
   title,
   description,
-  image = "/og.png",
+  image,
   canonical,
   keywords = [],
 }: CreateMetadataOptions = {}): Metadata {
-  const pageTitle = title
-    ? `${title} | ${seoDefaults.siteName}`
-    : seoDefaults.title;
+  // Raw title only — the root layout's metadata defines a title
+  // template (`%s | ${site.name}`) that Next.js applies automatically
+  // to the <title> tag. Appending the site name here too would
+  // duplicate it ("Pricing | Nexora Systems | Nexora Systems").
+  // openGraph/twitter titles use this same raw value since their site
+  // name is already carried by `openGraph.siteName` below.
+  const pageTitle = title ?? seoDefaults.siteName;
 
   const pageDescription =
     description ?? seoDefaults.description;
@@ -46,18 +50,16 @@ export function createMetadata({
       siteName: seoDefaults.siteName,
       title: pageTitle,
       description: pageDescription,
-      images: [
-        {
-          url: image,
-        },
-      ],
+      // When omitted, Next falls back to the root `opengraph-image`
+      // file-convention route so every page shares one branded image.
+      ...(image ? { images: [{ url: image }] } : {}),
     },
 
     twitter: {
       card: seoDefaults.twitterCard,
       title: pageTitle,
       description: pageDescription,
-      images: [image],
+      ...(image ? { images: [image] } : {}),
     },
   };
 }

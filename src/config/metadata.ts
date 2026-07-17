@@ -12,6 +12,14 @@ export const metadata: Metadata = {
 
   description: site.description,
 
+  keywords: [
+    "infrastructure control plane",
+    "cloud infrastructure platform",
+    "platform engineering",
+    "infrastructure orchestration",
+    "developer platform",
+  ],
+
   applicationName: site.name,
 
   authors: [

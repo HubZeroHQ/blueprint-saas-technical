@@ -1,8 +1,11 @@
 export const site = {
-  name: "Blueprint Base",
-  description: "The engineering foundation for every HubZero blueprint.",
+  name: "Nexora Systems",
+  shortName: "Nexora",
+  tagline: "The control plane for modern infrastructure.",
+  description:
+    "Nexora Systems is the control plane platform and infrastructure teams use to provision, observe, and govern cloud infrastructure across every environment.",
 
-  url: "https://example.com",
+  url: "https://nexorasystems.com",
 
   author: {
     name: "HubZero",

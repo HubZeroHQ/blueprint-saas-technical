@@ -2,6 +2,8 @@
 
 import type { ReactNode } from "react";
 
+import { ThemeProvider } from "@/providers/ThemeProvider";
+
 interface AppProviderProps {
   children: ReactNode;
 }
@@ -9,5 +11,5 @@ interface AppProviderProps {
 export function AppProvider({
   children,
 }: AppProviderProps) {
-  return <>{children}</>;
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

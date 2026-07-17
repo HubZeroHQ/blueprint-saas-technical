@@ -1,13 +1,144 @@
+/*
+ * Nexora Systems — Technical design language tokens.
+ *
+ * Raw values live here as plain CSS custom properties so they can be
+ * swapped per color scheme via [data-theme]. globals.css exposes them to
+ * Tailwind through `@theme inline`, which is how a v4 project maps
+ * runtime-switchable CSS variables onto generated utility classes.
+ */
+
 :root {
-  /* Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  /* Corner — one radius token, applied uniformly to every interactive
+     surface. Technical corners are barely-there, never friendly. */
+  --radius: 0.375rem;
 
   /* Layout */
   --container-width: 80rem;
 
-  /* Motion */
-  --transition-fast: 150ms;
-  --transition-normal: 250ms;
+  /* Motion — short, near-linear. Motion here reports state, it doesn't
+     perform. */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --ease-technical: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: var(--duration-fast);
+  --transition-normal: var(--duration-normal);
+
+  /* Shadow — nearly absent. Reserved for the single small lift a
+     floating/overlaid element needs above the grid. */
+  --shadow-elevated: 0 4px 16px -4px rgb(15 23 42 / 0.12), 0 1px 2px -1px rgb(15 23 42 / 0.08);
+
+  /* Neutral scale — light */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f7f8fa;
+  /* A whisper off pure white — enough that a card reads as a distinct
+     surface even on a plain (non-subtle) section background, without
+     relying on the border alone. Mirrors the bg/surface tonal step
+     dark mode already has, scaled down for light mode's tighter range.
+     Kept lighter than --color-bg-subtle so the two remain distinguishable
+     when both appear (e.g. a card on a bg-subtle section). */
+  --color-surface: #fbfbfd;
+  --color-surface-hover: #f3f4f6;
+  --color-border: #e2e4e9;
+  --color-border-strong: #c7cad1;
+  --color-fg: #14171f;
+  --color-fg-muted: #565c6b;
+  /* 4.83:1 against --color-bg — WCAG AA for normal text. The original
+     #8a90a0 measured 3.19:1, which fails AA at the small sizes (labels,
+     timestamps, kbd hints) this token is actually used at. */
+  --color-fg-subtle: #6b7280;
+
+  /* Accent — signal blue, used only where it means "act here" */
+  --color-accent: #3355e8;
+  --color-accent-hover: #2946c9;
+  --color-accent-fg: #ffffff;
+  --color-accent-muted: #eaeeff;
+  --color-ring: #3355e8;
+
+  /* Status — reused everywhere state is reported, not just alerts */
+  --color-success: #12805c;
+  --color-success-fg: #ffffff;
+  --color-success-muted: #e5f5ef;
+  --color-warning: #9a6300;
+  --color-warning-fg: #ffffff;
+  --color-warning-muted: #fbf1de;
+  --color-danger: #c22a3e;
+  --color-danger-fg: #ffffff;
+  --color-danger-muted: #fbe9eb;
+
+  --color-code-bg: #0d1017;
+  --color-code-fg: #d6dae3;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0a0b0f;
+  --color-bg-subtle: #101218;
+  --color-surface: #14161d;
+  --color-surface-hover: #1b1e27;
+  --color-border: #24272f;
+  --color-border-strong: #33373f;
+  --color-fg: #e8e9ed;
+  --color-fg-muted: #a0a4b0;
+  /* 6.55:1 against --color-bg — WCAG AA for normal text. The original
+     #656b7a measured 3.69:1, which fails AA at the small sizes this
+     token is actually used at. */
+  --color-fg-subtle: #8f95a3;
+
+  --color-accent: #6e87ff;
+  --color-accent-hover: #8598ff;
+  --color-accent-fg: #0a0b0f;
+  --color-accent-muted: #1b2044;
+  --color-ring: #6e87ff;
+
+  --color-success: #3ecf95;
+  --color-success-fg: #06251a;
+  --color-success-muted: #102a20;
+  --color-warning: #f2b84b;
+  --color-warning-fg: #2a1c02;
+  --color-warning-muted: #2a2110;
+  --color-danger: #f0616f;
+  --color-danger-fg: #2b0a0e;
+  --color-danger-muted: #2c1418;
+
+  --color-code-bg: #05060a;
+  --color-code-fg: #d6dae3;
+
+  --shadow-elevated: 0 4px 20px -4px rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0a0b0f;
+    --color-bg-subtle: #101218;
+    --color-surface: #14161d;
+    --color-surface-hover: #1b1e27;
+    --color-border: #24272f;
+    --color-border-strong: #33373f;
+    --color-fg: #e8e9ed;
+    --color-fg-muted: #a0a4b0;
+    /* 6.55:1 against --color-bg — WCAG AA for normal text. The original
+     #656b7a measured 3.69:1, which fails AA at the small sizes this
+     token is actually used at. */
+  --color-fg-subtle: #8f95a3;
+
+    --color-accent: #6e87ff;
+    --color-accent-hover: #8598ff;
+    --color-accent-fg: #0a0b0f;
+    --color-accent-muted: #1b2044;
+    --color-ring: #6e87ff;
+
+    --color-success: #3ecf95;
+    --color-success-fg: #06251a;
+    --color-success-muted: #102a20;
+    --color-warning: #f2b84b;
+    --color-warning-fg: #2a1c02;
+    --color-warning-muted: #2a2110;
+    --color-danger: #f0616f;
+    --color-danger-fg: #2b0a0e;
+    --color-danger-muted: #2c1418;
+
+    --color-code-bg: #05060a;
+    --color-code-fg: #d6dae3;
+
+    --shadow-elevated: 0 4px 20px -4px rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  }
 }
