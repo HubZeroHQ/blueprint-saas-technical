@@ -8,9 +8,11 @@ import { CTASection } from "@/components/marketing/CTASection";
 import { PageHeader } from "@/components/marketing/PageHeader";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 import { company } from "@/config/company";
 import { routes } from "@/config/routes";
 import { createMetadata } from "@/seo/createMetadata";
+import { EASE_FAST } from "@/utils/motion";
 
 export const metadata: Metadata = createMetadata({
   title: "Security",
@@ -78,14 +80,18 @@ export default function SecurityPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Practices" title="How Nexora protects your infrastructure" />
           <div className="grid gap-4 sm:grid-cols-2">
-            {PILLARS.map((pillar) => (
-              <Card key={pillar.title} className="flex flex-col gap-4">
-                <span className="flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent">
-                  <pillar.icon className="h-4.5 w-4.5" />
-                </span>
-                <h3 className="text-sm font-semibold text-fg">{pillar.title}</h3>
-                <p className="text-sm leading-relaxed text-fg-muted">{pillar.description}</p>
-              </Card>
+            {PILLARS.map((pillar, index) => (
+              <Reveal key={pillar.title} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-4">
+                  <span
+                    className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}
+                  >
+                    <pillar.icon className="h-4.5 w-4.5" />
+                  </span>
+                  <h3 className="text-sm font-semibold text-fg">{pillar.title}</h3>
+                  <p className="text-sm leading-relaxed text-fg-muted">{pillar.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -95,16 +101,15 @@ export default function SecurityPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Compliance" title="Certifications and compliance program" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CERTIFICATIONS.map((cert) => (
-              <div
-                key={cert.name}
-                className="flex flex-col gap-2 rounded-technical border border-border bg-surface p-5"
-              >
-                <span className="font-mono text-xs uppercase tracking-wide text-accent">
-                  {cert.name}
-                </span>
-                <p className="text-sm leading-relaxed text-fg-muted">{cert.description}</p>
-              </div>
+            {CERTIFICATIONS.map((cert, index) => (
+              <Reveal key={cert.name} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-2">
+                  <span className="font-mono text-xs uppercase tracking-wide text-accent">
+                    {cert.name}
+                  </span>
+                  <p className="text-sm leading-relaxed text-fg-muted">{cert.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>

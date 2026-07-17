@@ -8,6 +8,8 @@ import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { StatsRow } from "@/components/marketing/StatsRow";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 import { company } from "@/config/company";
 import { routes } from "@/config/routes";
 import { team } from "@/data/team";
@@ -38,9 +40,11 @@ export default function AboutPage() {
 
       <Section>
         <Container className="flex flex-col gap-10">
-          <p className="mx-auto max-w-3xl text-2xl font-medium leading-snug tracking-tight text-fg">
-            {company.mission}
-          </p>
+          <Reveal>
+            <p className="mx-auto max-w-3xl text-2xl font-medium leading-snug tracking-tight text-fg">
+              {company.mission}
+            </p>
+          </Reveal>
           <StatsRow stats={STATS} />
         </Container>
       </Section>
@@ -49,14 +53,13 @@ export default function AboutPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="What we believe" title="The values that shape how we build" />
           <div className="grid gap-4 sm:grid-cols-2">
-            {company.values.map((value) => (
-              <div
-                key={value.name}
-                className="flex flex-col gap-3 rounded-technical border border-border bg-surface p-6"
-              >
-                <h3 className="text-base font-semibold text-fg">{value.name}</h3>
-                <p className="text-sm leading-relaxed text-fg-muted">{value.description}</p>
-              </div>
+            {company.values.map((value, index) => (
+              <Reveal key={value.name} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-3">
+                  <h3 className="text-base font-semibold text-fg">{value.name}</h3>
+                  <p className="text-sm leading-relaxed text-fg-muted">{value.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -66,18 +69,17 @@ export default function AboutPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Team" title="The people building Nexora" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="flex flex-col gap-4 rounded-technical border border-border bg-surface p-6"
-              >
-                <Avatar name={member.name} />
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-sm font-semibold text-fg">{member.name}</h3>
-                  <p className="font-mono text-xs text-accent">{member.role}</p>
-                </div>
-                <p className="text-sm leading-relaxed text-fg-muted">{member.bio}</p>
-              </div>
+            {team.map((member, index) => (
+              <Reveal key={member.name} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-4">
+                  <Avatar name={member.name} />
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-sm font-semibold text-fg">{member.name}</h3>
+                    <p className="font-mono text-xs text-accent">{member.role}</p>
+                  </div>
+                  <p className="text-sm leading-relaxed text-fg-muted">{member.bio}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>

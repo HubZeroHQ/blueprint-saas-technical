@@ -40,14 +40,18 @@ export function Tabs({ items, className }: TabsProps) {
               aria-controls={`${baseId}-panel-${item.id}`}
               onClick={() => setActiveId(item.id)}
               className={cn(
-                `relative px-4 py-3 text-sm font-medium transition-colors ${EASE_FAST}`,
+                `group relative px-4 py-3 text-sm font-medium transition-colors ${EASE_FAST}`,
                 isActive ? "text-fg" : "text-fg-muted hover:text-fg"
               )}
             >
               {item.label}
-              {isActive && (
-                <span className="absolute inset-x-0 -bottom-px h-0.5 bg-accent" />
-              )}
+              <span
+                aria-hidden="true"
+                className={cn(
+                  `absolute inset-x-0 -bottom-px h-0.5 origin-center bg-accent transition-transform ${EASE_FAST}`,
+                  isActive ? "scale-x-100" : "scale-x-0"
+                )}
+              />
             </button>
           );
         })}
@@ -60,7 +64,11 @@ export function Tabs({ items, className }: TabsProps) {
           id={`${baseId}-panel-${item.id}`}
           aria-labelledby={`${baseId}-tab-${item.id}`}
           hidden={item.id !== activeId}
-          className="pt-8"
+          className={cn(
+            "pt-8",
+            item.id === activeId &&
+              "[animation:content-in_var(--duration-normal)_var(--ease-technical)]"
+          )}
         >
           {item.content}
         </div>

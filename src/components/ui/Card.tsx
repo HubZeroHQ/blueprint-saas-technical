@@ -13,7 +13,11 @@ export function Card({ className, interactive, ...props }: CardProps) {
       className={cn(
         "rounded-technical border border-border bg-surface p-6",
         interactive &&
-          `transition-colors ${EASE_FAST} hover:border-border-strong hover:bg-surface-hover`,
+          cn(
+            "group transition-[color,background-color,border-color,box-shadow,transform]",
+            EASE_FAST,
+            "hover:-translate-y-0.5 hover:border-border-strong hover:bg-surface-hover hover:shadow-elevated"
+          ),
         className
       )}
       {...props}

@@ -84,3 +84,30 @@ body {
   outline-offset: 2px;
   border-radius: calc(var(--radius) / 2);
 }
+
+/* Mount-in keyframes for overlays that unmount entirely on close (command
+   palette, modals) — there's no exit transition to match since the
+   element leaves the DOM immediately, so this covers the "what appeared"
+   case only. Kept to opacity/transform so it's compositor-only. */
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+/* Restarts automatically whenever the element toggles from `hidden` /
+   `display:none` back to visible — used for tab-panel switches, where
+   the content stays mounted and the active panel is unhidden. */
+@keyframes content-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}

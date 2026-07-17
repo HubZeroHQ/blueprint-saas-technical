@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import type { NavigationItem } from "@/config/navigation";
 import { isRouteActive, routes } from "@/config/routes";
 import { cn } from "@/utils/cn";
-import { EASE_NORMAL } from "@/utils/motion";
+import { EASE_FAST, EASE_NORMAL } from "@/utils/motion";
 
 interface MobileNavProps {
   open: boolean;
@@ -48,7 +48,7 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
         type="button"
         onClick={onClose}
         aria-label="Close menu"
-        className="absolute right-6 top-3.5 inline-flex h-9 w-9 items-center justify-center rounded-technical border border-border text-fg"
+        className={`absolute right-6 top-3.5 inline-flex h-9 w-9 items-center justify-center rounded-technical border border-border text-fg transition-colors ${EASE_FAST} hover:border-border-strong`}
       >
         <CloseIcon />
       </button>
@@ -58,11 +58,18 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
         className="flex h-full flex-col justify-between overflow-y-auto px-6 pb-10 pt-24"
       >
         <ul className="flex flex-col divide-y divide-border border-y border-border">
-          {items.map((item) => {
+          {items.map((item, index) => {
             const active = isRouteActive(pathname, item.href);
 
             return (
-              <li key={item.href}>
+              <li
+                key={item.href}
+                style={open ? { transitionDelay: `${40 + index * 40}ms` } : undefined}
+                className={cn(
+                  `transition-[opacity,transform] ${EASE_NORMAL}`,
+                  open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+                )}
+              >
                 <Link
                   href={item.href}
                   onClick={onClose}

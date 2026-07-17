@@ -75,14 +75,18 @@ export function Navbar() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    `relative px-3 py-2 text-sm font-medium transition-colors ${EASE_FAST}`,
+                    `group relative px-3 py-2 text-sm font-medium transition-colors ${EASE_FAST}`,
                     active ? "text-fg" : "text-fg-muted hover:text-fg"
                   )}
                 >
                   {item.label}
-                  {active && (
-                    <span className="absolute inset-x-3 -bottom-px h-0.5 bg-accent" />
-                  )}
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      `absolute inset-x-3 -bottom-px h-0.5 origin-center scale-x-0 transition-transform ${EASE_FAST}`,
+                      active ? "scale-x-100 bg-accent" : "bg-fg-muted group-hover:scale-x-100"
+                    )}
+                  />
                 </Link>
               );
             })}
@@ -109,7 +113,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen((isOpen) => !isOpen)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-technical border border-border text-fg lg:hidden"
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-technical border border-border text-fg transition-colors ${EASE_FAST} hover:border-border-strong lg:hidden`}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >

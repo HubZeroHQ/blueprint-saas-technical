@@ -6,6 +6,8 @@ import { Section } from "@/components/layout/Section";
 import { CTASection } from "@/components/marketing/CTASection";
 import { PageHeader } from "@/components/marketing/PageHeader";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
+import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 import { company } from "@/config/company";
 import { routes } from "@/config/routes";
 import { benefits, openRoles } from "@/data/careers";
@@ -32,14 +34,13 @@ export default function CareersPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Benefits" title="How we support the team" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="flex flex-col gap-2 rounded-technical border border-border bg-surface p-6"
-              >
-                <h3 className="text-sm font-semibold text-fg">{benefit.title}</h3>
-                <p className="text-sm leading-relaxed text-fg-muted">{benefit.description}</p>
-              </div>
+            {benefits.map((benefit, index) => (
+              <Reveal key={benefit.title} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-2">
+                  <h3 className="text-sm font-semibold text-fg">{benefit.title}</h3>
+                  <p className="text-sm leading-relaxed text-fg-muted">{benefit.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>

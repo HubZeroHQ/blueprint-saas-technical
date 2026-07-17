@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import type { PricingPlan } from "@/data/pricing";
 import { cn } from "@/utils/cn";
+import { EASE_FAST } from "@/utils/motion";
 
 interface PricingTableProps {
   plans: PricingPlan[];
@@ -15,8 +16,12 @@ export function PricingTable({ plans }: PricingTableProps) {
         <div
           key={plan.id}
           className={cn(
-            "flex flex-col gap-6 rounded-technical border p-8",
-            plan.highlighted ? "border-accent bg-accent-muted" : "border-border bg-surface"
+            "flex flex-col gap-6 rounded-technical border p-8 transition-[border-color,box-shadow,transform]",
+            EASE_FAST,
+            "hover:-translate-y-0.5 hover:shadow-elevated",
+            plan.highlighted
+              ? "border-accent bg-accent-muted hover:border-accent"
+              : "border-border bg-surface hover:border-border-strong"
           )}
         >
           <div className="flex flex-col gap-2">

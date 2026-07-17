@@ -16,12 +16,18 @@
   --container-width: 80rem;
 
   /* Motion — short, near-linear. Motion here reports state, it doesn't
-     perform. */
+     perform. --duration-slow is reserved for one-time viewport reveals
+     (entrances), never for hover/press feedback. */
   --duration-fast: 120ms;
   --duration-normal: 200ms;
+  --duration-slow: 420ms;
   --ease-technical: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: var(--duration-fast);
   --transition-normal: var(--duration-normal);
+
+  /* Reveal offset — the single vertical distance every entrance
+     animation travels, so section reveals read as one system. */
+  --reveal-distance: 10px;
 
   /* Shadow — nearly absent. Reserved for the single small lift a
      floating/overlaid element needs above the grid. */

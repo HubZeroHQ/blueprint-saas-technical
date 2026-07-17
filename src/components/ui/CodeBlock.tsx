@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { CheckIcon } from "@/components/icons";
 import { cn } from "@/utils/cn";
 import { EASE_FAST } from "@/utils/motion";
 
@@ -39,8 +40,12 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
         <button
           type="button"
           onClick={handleCopy}
-          className={`font-mono text-xs text-white/50 transition-colors ${EASE_FAST} hover:text-white`}
+          className={cn(
+            `inline-flex items-center gap-1.5 font-mono text-xs transition-colors ${EASE_FAST}`,
+            copied ? "text-success" : "text-white/50 hover:text-white"
+          )}
         >
+          {copied && <CheckIcon className="h-3 w-3" />}
           {copied ? "copied" : "copy"}
         </button>
       </div>

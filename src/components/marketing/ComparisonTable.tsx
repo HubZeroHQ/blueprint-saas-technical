@@ -1,5 +1,6 @@
 import { CheckIcon } from "@/components/icons";
 import type { ComparisonSection } from "@/data/pricing";
+import { EASE_FAST } from "@/utils/motion";
 
 interface ComparisonTableProps {
   sections: ComparisonSection[];
@@ -43,7 +44,10 @@ export function ComparisonTable({ sections }: ComparisonTableProps) {
               </th>
             </tr>
             {section.rows.map((row) => (
-              <tr key={row.label} className="border-t border-border">
+              <tr
+                key={row.label}
+                className={`border-t border-border transition-colors ${EASE_FAST} hover:bg-surface-hover`}
+              >
                 <th scope="row" className="py-3 pr-4 text-sm font-normal text-fg">
                   {row.label}
                 </th>

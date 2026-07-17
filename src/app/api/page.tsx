@@ -8,8 +8,11 @@ import { PageHeader } from "@/components/marketing/PageHeader";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { Badge } from "@/components/ui/Badge";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 import { routes } from "@/config/routes";
 import { createMetadata } from "@/seo/createMetadata";
+import { EASE_FAST } from "@/utils/motion";
 
 export const metadata: Metadata = createMetadata({
   title: "API Reference",
@@ -85,7 +88,7 @@ export default function ApiPage() {
             {ENDPOINTS.map((endpoint) => (
               <div
                 key={endpoint.method + endpoint.path}
-                className="flex flex-col gap-2 border-b border-border bg-surface px-5 py-4 last:border-b-0 sm:flex-row sm:items-center sm:gap-4"
+                className={`flex flex-col gap-2 border-b border-border bg-surface px-5 py-4 transition-colors ${EASE_FAST} last:border-b-0 hover:bg-surface-hover sm:flex-row sm:items-center sm:gap-4`}
               >
                 <div className="flex items-center gap-3 sm:w-72 sm:shrink-0">
                   <Badge tone={METHOD_TONE[endpoint.method] ?? "neutral"} className="w-16 justify-center">
@@ -117,16 +120,15 @@ export default function ApiPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Rate limits" title="Requests per plan" />
           <div className="grid gap-4 sm:grid-cols-3">
-            {RATE_LIMITS.map((tier) => (
-              <div
-                key={tier.plan}
-                className="flex flex-col gap-2 rounded-technical border border-border bg-surface p-5"
-              >
-                <span className="font-mono text-xs uppercase tracking-wide text-fg-subtle">
-                  {tier.plan}
-                </span>
-                <span className="text-sm text-fg">{tier.limit}</span>
-              </div>
+            {RATE_LIMITS.map((tier, index) => (
+              <Reveal key={tier.plan} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-2">
+                  <span className="font-mono text-xs uppercase tracking-wide text-fg-subtle">
+                    {tier.plan}
+                  </span>
+                  <span className="text-sm text-fg">{tier.limit}</span>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>

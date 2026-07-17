@@ -13,6 +13,7 @@ import {
 import { routes } from "@/config/routes";
 import { useTheme } from "@/providers/ThemeProvider";
 import { cn } from "@/utils/cn";
+import { EASE_FAST } from "@/utils/motion";
 
 interface Command {
   id: string;
@@ -143,7 +144,7 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-[15vh]">
       <div
-        className="fixed inset-0 bg-black/50"
+        className="fixed inset-0 bg-black/50 [animation:overlay-in_var(--duration-normal)_var(--ease-technical)]"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -154,9 +155,9 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
         aria-modal="true"
         aria-label="Command palette"
         onKeyDown={handleDialogKeyDown}
-        className="relative w-full max-w-lg overflow-hidden rounded-technical border border-border bg-surface shadow-elevated"
+        className="relative w-full max-w-lg overflow-hidden rounded-technical border border-border bg-surface shadow-elevated [animation:dialog-in_var(--duration-normal)_var(--ease-technical)]"
       >
-        <div className="flex items-center gap-3 border-b border-border px-4">
+        <div className="flex items-center gap-3 border-b border-border px-4 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-technical)] focus-within:border-accent">
           <SearchIcon className="text-fg-subtle" />
           <input
             ref={inputRef}
@@ -193,7 +194,7 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => runCommand(command)}
                 className={cn(
-                  "flex w-full items-center justify-between rounded-[4px] px-3 py-2.5 text-left text-sm",
+                  `flex w-full items-center justify-between rounded-[4px] px-3 py-2.5 text-left text-sm transition-colors ${EASE_FAST}`,
                   index === activeIndex ? "bg-accent-muted text-accent" : "text-fg"
                 )}
               >

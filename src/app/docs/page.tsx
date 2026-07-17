@@ -9,8 +9,10 @@ import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { Reveal } from "@/components/ui/Reveal";
 import { routes } from "@/config/routes";
 import { createMetadata } from "@/seo/createMetadata";
+import { EASE_FAST } from "@/utils/motion";
 
 export const metadata: Metadata = createMetadata({
   title: "Documentation",
@@ -87,14 +89,18 @@ export default function DocsPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Core concepts" title="The vocabulary Nexora is built on" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CONCEPTS.map((concept) => (
-              <Card key={concept.title} className="flex flex-col gap-4">
-                <span className="flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent">
-                  <concept.icon className="h-4.5 w-4.5" />
-                </span>
-                <h3 className="text-sm font-semibold text-fg">{concept.title}</h3>
-                <p className="text-sm leading-relaxed text-fg-muted">{concept.description}</p>
-              </Card>
+            {CONCEPTS.map((concept, index) => (
+              <Reveal key={concept.title} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-4">
+                  <span
+                    className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}
+                  >
+                    <concept.icon className="h-4.5 w-4.5" />
+                  </span>
+                  <h3 className="text-sm font-semibold text-fg">{concept.title}</h3>
+                  <p className="text-sm leading-relaxed text-fg-muted">{concept.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -104,16 +110,15 @@ export default function DocsPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="SDKs & CLI" title="Client libraries for every language in your stack" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {SDKS.map((sdk) => (
-              <div
-                key={sdk.name}
-                className="flex flex-col gap-3 rounded-technical border border-border bg-surface p-5"
-              >
-                <h3 className="text-sm font-semibold text-fg">{sdk.name}</h3>
-                <code className="break-words font-mono text-xs leading-relaxed text-fg-muted">
-                  {sdk.install}
-                </code>
-              </div>
+            {SDKS.map((sdk, index) => (
+              <Reveal key={sdk.name} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-3">
+                  <h3 className="text-sm font-semibold text-fg">{sdk.name}</h3>
+                  <code className="break-words font-mono text-xs leading-relaxed text-fg-muted">
+                    {sdk.install}
+                  </code>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </Container>

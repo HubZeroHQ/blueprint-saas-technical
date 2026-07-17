@@ -15,6 +15,8 @@ import { TestimonialGrid } from "@/components/marketing/TestimonialGrid";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 import { ChartIcon, LockIcon, ServerIcon } from "@/components/icons";
 import { routes } from "@/config/routes";
 import { features } from "@/data/features";
@@ -27,6 +29,7 @@ import {
   softwareApplicationSchema,
   websiteSchema,
 } from "@/seo/structuredData";
+import { EASE_FAST } from "@/utils/motion";
 
 const HOME_FEATURES = features.slice(0, 6);
 const HOME_INTEGRATIONS = integrations.slice(0, 6);
@@ -79,17 +82,18 @@ export default function HomePage() {
           />
 
           <div className="grid gap-4 sm:grid-cols-3">
-            {PILLARS.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="flex flex-col gap-4 rounded-technical border border-border bg-surface p-6"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent">
-                  <pillar.icon className="h-4.5 w-4.5" />
-                </span>
-                <h3 className="text-base font-semibold text-fg">{pillar.title}</h3>
-                <p className="text-sm leading-relaxed text-fg-muted">{pillar.description}</p>
-              </div>
+            {PILLARS.map((pillar, index) => (
+              <Reveal key={pillar.title} index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-4">
+                  <span
+                    className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}
+                  >
+                    <pillar.icon className="h-4.5 w-4.5" />
+                  </span>
+                  <h3 className="text-base font-semibold text-fg">{pillar.title}</h3>
+                  <p className="text-sm leading-relaxed text-fg-muted">{pillar.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
 

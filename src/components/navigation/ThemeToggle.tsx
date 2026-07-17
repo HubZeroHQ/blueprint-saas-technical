@@ -35,14 +35,27 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         className
       )}
     >
-      {isDark ? <SunIcon /> : <MoonIcon /> }
+      <span className="relative inline-flex h-4 w-4 items-center justify-center">
+        <SunIcon
+          className={cn(
+            `absolute transition-[opacity,transform] ${EASE_FAST}`,
+            isDark ? "rotate-90 opacity-0" : "rotate-0 opacity-100"
+          )}
+        />
+        <MoonIcon
+          className={cn(
+            `absolute transition-[opacity,transform] ${EASE_FAST}`,
+            isDark ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"
+          )}
+        />
+      </span>
     </button>
   );
 }
 
-function SunIcon() {
+function SunIcon({ className }: { className?: string }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={className}>
       <circle cx="8" cy="8" r="3.25" stroke="currentColor" strokeWidth="1.4" />
       <path
         d="M8 1.5V3M8 13V14.5M14.5 8H13M3 8H1.5M12.36 3.64L11.3 4.7M4.7 11.3L3.64 12.36M12.36 12.36L11.3 11.3M4.7 4.7L3.64 3.64"
@@ -54,9 +67,9 @@ function SunIcon() {
   );
 }
 
-function MoonIcon() {
+function MoonIcon({ className }: { className?: string }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={className}>
       <path
         d="M13.5 9.65A5.75 5.75 0 116.35 2.5a4.6 4.6 0 007.15 7.15z"
         stroke="currentColor"

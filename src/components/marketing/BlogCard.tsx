@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { routes } from "@/config/routes";
 import type { BlogPost } from "@/data/blog";
+import { cn } from "@/utils/cn";
 import { EASE_FAST } from "@/utils/motion";
 
 interface BlogCardProps {
@@ -13,7 +14,11 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <Link
       href={routes.blogPost(post.slug)}
-      className={`group flex flex-col gap-4 rounded-technical border border-border bg-surface p-6 transition-colors ${EASE_FAST} hover:border-border-strong hover:bg-surface-hover`}
+      className={cn(
+        "group flex h-full flex-col gap-4 rounded-technical border border-border bg-surface p-6 transition-[color,background-color,border-color,box-shadow,transform]",
+        EASE_FAST,
+        "hover:-translate-y-0.5 hover:border-border-strong hover:bg-surface-hover hover:shadow-elevated"
+      )}
     >
       <Badge tone="accent" className="w-fit">
         {post.category}

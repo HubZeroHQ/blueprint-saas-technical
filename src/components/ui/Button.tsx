@@ -5,7 +5,9 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { cn } from "@/utils/cn";
 import { EASE_FAST } from "@/utils/motion";
 
-const MOTION = `transition-colors ${EASE_FAST}`;
+// `active:scale` gives buttons a tactile press without touching layout —
+// transform + color/opacity only, per the Technical performance guidance.
+const MOTION = `transition-[color,background-color,border-color,opacity,transform] ${EASE_FAST} active:scale-[0.98]`;
 
 const buttonVariants = cva(
   cn(

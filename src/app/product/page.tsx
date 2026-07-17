@@ -9,7 +9,9 @@ import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { PageHeader } from "@/components/marketing/PageHeader";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { Reveal } from "@/components/ui/Reveal";
 import { Tabs } from "@/components/ui/Tabs";
 import { Terminal } from "@/components/ui/Terminal";
 import { routes } from "@/config/routes";
@@ -97,16 +99,15 @@ export default function ProductPage() {
 
           <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step, index) => (
-              <li
-                key={step.title}
-                className="flex flex-col gap-3 rounded-technical border border-border bg-surface p-6"
-              >
-                <span className="font-mono text-sm text-accent">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-sm font-semibold text-fg">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-fg-muted">{step.description}</p>
-              </li>
+              <Reveal key={step.title} as="li" index={index} step={60}>
+                <Card interactive className="flex h-full flex-col gap-3">
+                  <span className="font-mono text-sm text-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-sm font-semibold text-fg">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-fg-muted">{step.description}</p>
+                </Card>
+              </Reveal>
             ))}
           </ol>
         </Container>
