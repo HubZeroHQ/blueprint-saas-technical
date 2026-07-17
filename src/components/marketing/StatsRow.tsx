@@ -44,10 +44,16 @@ const COUNT_UP_MS = 600;
 
 function StatValue({ value, animate }: { value: string; animate: boolean }) {
   const parsed = parseStat(value);
+  // A bare number with no prefix or suffix reads as an identifier (a
+  // founding year, an ID) rather than a quantity — count it up and
+  // `toLocaleString` will format it as "2,019", which is wrong for a
+  // year. Every genuine count in this app's content carries a unit or a
+  // "+" (e.g. "180+", "$500K"), so this is a safe way to tell them apart.
+  const isCountableQuantity = parsed && (parsed.prefix || parsed.suffix);
   const [display, setDisplay] = useState(value);
 
   useEffect(() => {
-    if (!animate || !parsed) return;
+    if (!animate || !isCountableQuantity) return;
 
     const reduceMotion =
       typeof window !== "undefined" &&
