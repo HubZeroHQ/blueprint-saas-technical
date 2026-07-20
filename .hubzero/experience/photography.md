@@ -2,7 +2,7 @@
 
 Blueprints should never ship with gray placeholder blocks, generic stock photography, or "image coming soon" states.
 
-Photography Generation happens after Brand Generation (`branding.md`), once the brand is established. It never happens during implementation — implementation should reference images by configuration, generated afterward.
+Photography Generation happens after Brand Generation (`branding.md`) and Content Generation (`content.md`), once the brand and its content are established. It never happens during implementation — implementation should reference images by configuration, generated afterward.
 
 ---
 

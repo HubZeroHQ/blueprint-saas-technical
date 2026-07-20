@@ -83,6 +83,7 @@ Verify consistency across the entire blueprint.
 - [ ] Cards
 - [ ] Forms
 - [ ] Navigation
+- [ ] Active navigation state
 - [ ] Footer
 - [ ] Responsive behavior
 - [ ] Motion consistency
@@ -105,6 +106,21 @@ Verify content remains reusable.
 
 Avoid embedding large amounts of content directly inside components whenever practical.
 
+## Editorial Consistency
+
+- [ ] One locale used throughout (no mixed English variants).
+- [ ] Spelling consistent with the chosen locale.
+- [ ] Punctuation style consistent (quotation, dash, list style).
+- [ ] Capitalization consistent (headings, titles, buttons).
+- [ ] Date format consistent across every page.
+- [ ] Currency and its formatting consistent.
+- [ ] Measurement system consistent (metric or imperial).
+- [ ] Terminology consistent (a product or role is not renamed between pages).
+- [ ] Address formatting consistent.
+- [ ] Phone number formatting consistent.
+
+See `.hubzero/experience/content.md` — Editorial Consistency.
+
 ---
 
 # 6. Placeholder Content
@@ -118,9 +134,15 @@ Verify all placeholder content.
 - [ ] Fictional testimonials.
 - [ ] Fictional blog articles.
 - [ ] Fictional contact information.
+- [ ] Fictional pricing.
+- [ ] Fictional FAQs.
+- [ ] Fictional legal pages (privacy, terms).
+- [ ] Fictional company history.
+- [ ] Fictional support content.
 - [ ] Placeholder content clearly documented.
+- [ ] No content is scraped, copied, or adapted from a real organization, person, or place.
 
-No placeholder should be easily mistaken for a real organization.
+No placeholder should be easily mistaken for a real organization. See `.hubzero/experience/content.md` for content generation standards, including the Fictional Content Policy.
 
 ---
 
@@ -151,6 +173,7 @@ Verify accessibility.
 - [ ] Sufficient color contrast.
 - [ ] Reduced motion respected.
 - [ ] Meaningful alt text.
+- [ ] Framework lifecycle routes (loading, error, not-found) are accessible.
 
 Target WCAG AA compliance.
 
@@ -162,6 +185,7 @@ Verify SEO.
 
 - [ ] Metadata.
 - [ ] Open Graph.
+- [ ] Open Graph image is a raster format (PNG/JPEG) and renders correctly across major social platforms.
 - [ ] Twitter metadata.
 - [ ] Canonical URLs.
 - [ ] Robots.
@@ -174,7 +198,9 @@ Reuse Blueprint Base infrastructure.
 
 # 10. Pages
 
-Verify every required page.
+Verify every page required by the selected Architecture category's complete user journey (see `.hubzero/architecture/principles.md`).
+
+The list below is the common baseline for Corporate and Services-style blueprints. Other architecture categories replace it with their own required pages — an SaaS blueprint verifies Pricing and Dashboard rather than Work and Careers, for example.
 
 - [ ] Home
 - [ ] About
@@ -196,14 +222,36 @@ Verify every required page.
 
 # 11. Runtime Verification
 
-Verify every route.
+Verify every route. A route that only passes when hard-refreshed, and never when reached through client-side navigation, is not verified — check both explicitly.
 
-- [ ] Loads successfully.
-- [ ] No console errors.
-- [ ] No hydration warnings.
-- [ ] No runtime exceptions.
+## First Load
+
+- [ ] Every route loads successfully on a direct/hard-refresh visit.
+- [ ] No console errors on first load.
+- [ ] No hydration warnings on first load.
+- [ ] No runtime exceptions on first load.
 - [ ] Dynamic routes function correctly.
-- [ ] Navigation works.
+
+## Client-Side Navigation
+
+- [ ] Every route is also reachable by navigating from another page within the app, not only by direct URL.
+- [ ] Navigation works in both directions (forward and back).
+- [ ] Active navigation state reflects the current route after a client-side transition.
+- [ ] No unintended horizontal overflow at any viewport width, before or after navigating.
+
+## Hydration After Navigation
+
+- [ ] No hydration warnings after navigating to a route client-side, not only on its first load.
+- [ ] Components that depend on client-only state (locale, viewport, storage) render correctly after a client-side transition, not only after a hard refresh.
+
+## Browser Console
+
+- [ ] Console inspected at first load, after client-side navigation to every route, and after returning — not only once at the start of the check.
+- [ ] No console errors or warnings at any of those points.
+
+## General
+
+- [ ] Verified in multiple browsers.
 - [ ] Images load correctly.
 
 ---
@@ -240,6 +288,7 @@ Verify documentation.
 - [ ] Folder structure explained.
 - [ ] Placeholder content documented.
 - [ ] Screenshots included.
+- [ ] README communicates HubZero attribution — the repository is a HubZero Blueprint and the business it depicts is fictional.
 
 ---
 
@@ -264,6 +313,7 @@ Verify the blueprint satisfies `.hubzero/experience/EXPERIENCE_STANDARD.md` in f
 - [ ] Design Review complete, including the Mobile Experience Overhaul pass.
 - [ ] Experience Generation Verification pass complete.
 - [ ] Brand assets generated and integrated (`.hubzero/experience/branding.md`).
+- [ ] HubZero attribution present in footer, About page, and README (`.hubzero/experience/branding.md` — HubZero Attribution).
 - [ ] Photography generated and integrated (`.hubzero/experience/photography.md`).
 - [ ] No temporary generation tooling remains in the repository.
 

@@ -59,10 +59,10 @@ For framework usage, implementation details, accessibility, security, or other g
 
 * `principles.md` — The canonical engineering principles. Every other document assumes this rather than restating it.
 * `agents/` — Guidance for AI collaborators: planning, implementation, engineering review, and design review.
-* `architecture/` — Website architecture categories and information architecture.
+* `architecture/` — General architecture principles, plus website architecture categories and information architecture.
 * `design/` — Design principles, design languages, and mobile experience guidance.
 * `seo/` — SEO principles and category-specific SEO strategy.
-* `experience/` — The experience standard, and brand and photography generation guidance.
+* `experience/` — The experience standard, and brand, content, and photography generation guidance.
 * `release/` — The canonical release checklist.
 
 Additional directories may be introduced as Blueprint Core evolves, provided they contribute HubZero-specific knowledge rather than generic technical documentation.

@@ -42,6 +42,8 @@ Consider:
 
 The interface should feel effortless to use.
 
+Accessibility review covers every route the framework generates, not only the routes explicitly built — loading, error, and not-found states need the same semantic structure, focus management, and keyboard reachability as any other page. See `.hubzero/principles.md` — Accessibility by Default.
+
 ---
 
 # Review the Design
@@ -135,10 +137,11 @@ Verify that:
 
 * Placeholder content has been removed where appropriate.
 * Error states have been considered.
-* Empty states behave correctly.
+* Empty states behave correctly, including anywhere filtering or search can legitimately return zero results.
 * Responsive layouts function correctly.
 * Accessibility has not been compromised.
 * Existing functionality remains intact.
+* Nothing simulates functionality the blueprint does not actually have — see `.hubzero/principles.md` — Honest Demonstration Over Simulated Functionality.
 
 Blueprints should always move toward production readiness.
 

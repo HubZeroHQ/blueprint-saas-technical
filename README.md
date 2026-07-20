@@ -6,6 +6,12 @@ architecture and the **Technical** design language.
 
 ![Homepage](docs/screenshots/home.jpg)
 
+This repository contains a fictional demonstration website. It is part of
+the [HubZero Blueprint](https://hubzero.in) ecosystem — a system for building
+production-quality reference websites. Nexora Systems, and every name,
+organization, product, testimonial, contact detail, and case study on this
+site, is fictional unless explicitly stated otherwise.
+
 This repository is a reusable foundation, not a one-off client site. Every
 piece of business content — company name, copy, pricing, team, customers,
 blog posts — lives in configuration and data files so it can be replaced

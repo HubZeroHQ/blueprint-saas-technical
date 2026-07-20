@@ -25,7 +25,7 @@ Design Review consists of three sequential passes. Each has a different question
 Evaluate the subjective quality of the experience, not just its correctness.
 
 * Hover and interaction quality
-* Motion quality — does it communicate, or just move?
+* Motion quality — does it communicate, or just move? For an intentionally zero-motion Design Language, is the interaction language still fully expressed through non-motion means (color, contrast, borders, state changes)? See `.hubzero/design/principles.md` — Motion Should Reinforce Understanding.
 * Loading and transition states
 * Spacing rhythm and visual hierarchy
 * Empty states
@@ -52,9 +52,13 @@ Do not consider this pass complete because the layout is responsive. Responsive 
 Confirm the blueprint would survive being shown to a prospective client without an explanation that "the real content isn't in yet."
 
 * No gray placeholder blocks anywhere.
-* Brand assets (logo, favicon, brand mark, Open Graph image, apple touch icons, light/dark variants) exist and are wired into metadata, navigation, and footer — not just generated and left unused.
+* Brand assets (logo, favicon, brand mark, Open Graph image, apple touch icons, light/dark variants) exist and are wired into metadata, navigation, and footer — not just generated and left unused. The Open Graph image is a raster format (PNG/JPEG); SVG is acceptable for the logo, brand mark, and favicon. See `.hubzero/experience/branding.md`.
 * Photography is cohesive across the site and consistent with the active Design Language's Photography Language.
-* The fictional company and its content are internally consistent (name, industry, tone, imagery all agree with each other).
+* The fictional company and its content are internally consistent (name, industry, tone, imagery all agree with each other) and generated rather than adapted from any real organization. See `.hubzero/experience/content.md` — Fictional Content Policy.
+* Written content — pricing, FAQs, legal pages, company history, support content — reads as production-ready rather than filler. See `.hubzero/experience/content.md`.
+* Content is editorially consistent — one locale, spelling convention, date format, currency, measurement system, and terminology throughout, with consistent address and phone formatting. See `.hubzero/experience/content.md` — Editorial Consistency.
+* Nothing simulates functionality the blueprint does not actually have — no fake form submissions, no fake persistence, no dishonest dynamic behavior. See `.hubzero/principles.md` — Honest Demonstration Over Simulated Functionality.
+* HubZero attribution is present in the footer, About page, and README, and reads as unobtrusive rather than promotional. See `.hubzero/experience/branding.md` — HubZero Attribution.
 * No temporary generation scripts, one-off tooling, or scratch files remain in the repository.
 
 Full standard: `.hubzero/experience/EXPERIENCE_STANDARD.md`.

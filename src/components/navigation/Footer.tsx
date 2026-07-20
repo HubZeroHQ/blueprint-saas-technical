@@ -64,6 +64,19 @@ export function Footer() {
             </SocialLink>
           </div>
         </div>
+
+        <p className="mt-6 text-xs text-fg-subtle">
+          Nexora Systems is a fictional company. This site is a demonstration built on the{" "}
+          <a
+            href={site.author.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className={`underline-offset-4 transition-colors ${EASE_FAST} hover:text-fg-muted hover:underline`}
+          >
+            HubZero Blueprint
+          </a>{" "}
+          ecosystem.
+        </p>
       </div>
     </footer>
   );

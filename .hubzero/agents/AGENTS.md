@@ -15,11 +15,12 @@ Your role is to build software consistent with HubZero's engineering philosophy,
 Unless instructed otherwise, consult these documents in the following order.
 
 1. `.hubzero/principles.md`
-2. `.hubzero/design/principles.md`
-3. Relevant document in `.hubzero/architecture/`
-4. Relevant document in `.hubzero/seo/`
-5. Relevant document in `.hubzero/design/languages/`
-6. Relevant agent guidance in this directory (`planning.md`, `implementation.md`, `review.md`, `design-review.md`)
+2. `.hubzero/architecture/principles.md`
+3. `.hubzero/design/principles.md`
+4. Relevant document in `.hubzero/architecture/`
+5. Relevant document in `.hubzero/seo/`
+6. Relevant document in `.hubzero/design/languages/`
+7. Relevant agent guidance in this directory (`planning.md`, `implementation.md`, `review.md`, `design-review.md`)
 
 Not every document needs to be read for every task.
 
@@ -112,6 +113,7 @@ When contributing to a HubZero Blueprint:
 * Preserve the blueprint's design language.
 * Build maintainable solutions.
 * Improve quality where appropriate.
+* Be honest about what the implementation can and cannot do — see `.hubzero/principles.md` — Honest Demonstration Over Simulated Functionality.
 
 Do not introduce unnecessary complexity.
 
@@ -191,6 +193,7 @@ Before considering an implementation complete:
 - Remove unnecessary complexity.
 - Eliminate duplication.
 - Verify consistency.
+- Verify the implementation renders predictably between server and client — see `.hubzero/principles.md` — Predictable Client/Server Rendering.
 - Ensure the implementation remains faithful to the selected Architecture, SEO strategy, and Design Language.
 
 ---

@@ -15,7 +15,7 @@ export const metadata: Metadata = createMetadata({
   canonical: routes.terms,
 });
 
-const LAST_UPDATED = "January 6, 2026";
+const LAST_UPDATED = "Jan 6, 2026";
 
 const SECTIONS = [
   {

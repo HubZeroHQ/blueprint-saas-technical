@@ -12,6 +12,7 @@ import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { company } from "@/config/company";
 import { routes } from "@/config/routes";
+import { site } from "@/config/site";
 import { team } from "@/data/team";
 import { createMetadata } from "@/seo/createMetadata";
 
@@ -98,6 +99,25 @@ export default function AboutPage() {
               View open roles
             </Button>
           </div>
+        </Container>
+      </Section>
+
+      <Section className="border-t border-border">
+        <Container className="mx-auto max-w-3xl">
+          <p className="text-sm leading-relaxed text-fg-muted">
+            Nexora Systems doesn&rsquo;t exist. This site is a{" "}
+            <a
+              href={site.author.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              HubZero Blueprint
+            </a>{" "}
+            — a fictional company built end to end, down to the team above and the customers
+            in our case studies, to demonstrate what production-quality engineering, design,
+            and accessibility look like when nothing is a placeholder.
+          </p>
         </Container>
       </Section>
     </Page>

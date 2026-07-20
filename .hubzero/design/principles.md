@@ -76,7 +76,7 @@ Every page should naturally lead into the next.
 
 Navigation, content, interactions, and layout should work together to guide users through a clear journey.
 
-Think about the complete experience rather than isolated screens.
+Think about the complete experience rather than isolated screens. See `.hubzero/architecture/principles.md` — Complete User Journeys for concrete per-architecture journey examples.
 
 ---
 
@@ -106,9 +106,13 @@ Aim for clarity rather than emptiness.
 
 Animation should communicate.
 
-It should explain relationships, provide feedback, reduce cognitive load, and create continuity between interactions.
+Motion exists to express hierarchy, feedback, state, progression, and focus — what changed, what is happening, or what deserves attention right now. It should explain relationships, reduce cognitive load, and create continuity between interactions.
 
-Motion should never distract from content.
+Motion should never exist purely for decoration, and it should never distract from content.
+
+A Motion Language is a philosophy, not a duration setting. Choosing "150ms ease-out" is not choosing a Motion Language any more than choosing a font size is choosing a Typography Language — the decision that matters is what motion is *for* in this interface, and how much of the interaction language it carries.
+
+Zero motion is a completely valid answer to that decision, not an unfinished one. A Design Language can deliberately choose no animation and still express a rich Interaction Language through color, contrast, borders, or state change instead of movement — see `.hubzero/design/languages/brutalist.md` for a language built on exactly this choice. What distinguishes an intentional zero-motion language from an unfinished one is whether hover, focus, and active states were designed at all: a zero-motion language with no considered interaction feedback has not made a motion decision, it has skipped one.
 
 ---
 
