@@ -56,7 +56,7 @@ export default function OpengraphImage() {
             {site.tagline}
           </span>
           <span style={{ fontSize: 24, color: "#a0a4b0" }}>
-            nexorasystems.com
+            nexora.hubzero.in
           </span>
         </div>
       </div>

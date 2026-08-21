@@ -36,9 +36,9 @@ export const company = {
   ],
 
   contact: {
-    email: "hello@nexorasystems.com",
-    support: "support@nexorasystems.com",
-    salesEmail: "sales@nexorasystems.com",
+    email: "hello@nexora.hubzero.in",
+    support: "support@nexora.hubzero.in",
+    salesEmail: "sales@nexora.hubzero.in",
     address: "600 Congress Avenue, Suite 1400, Austin, TX 78701",
   },
 
@@ -48,3 +48,6 @@ export const company = {
     linkedin: "https://linkedin.com/company/nexora-systems",
   },
 } as const;
+
+/** Authored so static output is deterministic and does not change at hydration. */
+export const copyrightYear = "2026";

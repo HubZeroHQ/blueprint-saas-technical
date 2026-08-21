@@ -74,6 +74,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.technical-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-border) 42%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-border) 28%, transparent) 1px, transparent 1px);
+  background-size: min(6.25vw, 80px) 100%, 100% 40px;
+}
+
+.technical-grid-fade {
+  mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
+}
+
+.system-label::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
 ::selection {
   background-color: var(--color-accent-muted);
   color: var(--color-accent);

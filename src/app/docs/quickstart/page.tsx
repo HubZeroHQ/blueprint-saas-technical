@@ -23,7 +23,7 @@ const STEPS = [
   {
     title: "Install the CLI",
     description: "Install the Nexora CLI and confirm it's on your path.",
-    code: `curl -fsSL https://cli.nexorasystems.com/install | sh
+    code: `curl -fsSL https://cli.nexora.hubzero.in/install | sh
 nexora --version`,
     filename: "terminal",
   },

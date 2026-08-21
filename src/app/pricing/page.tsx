@@ -27,7 +27,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Plans that scale from your first environment to your thousandth"
-        description="Start free. Upgrade when you need SLO tracking and policy guardrails. Move to Enterprise when you need SSO, a dedicated engineer, and a custom SLA."
+        description="Compare the fictional product tiers, then use the guided quickstart to evaluate the workflow. No account or subscription is created by this blueprint."
       />
 
       <Section>

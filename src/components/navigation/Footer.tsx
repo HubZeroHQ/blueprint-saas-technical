@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Logo } from "@/components/brand/Logo";
 import { StatusDot } from "@/components/ui/StatusDot";
-import { company } from "@/config/company";
+import { company, copyrightYear } from "@/config/company";
 import { footerGroups } from "@/config/footer";
 import { site } from "@/config/site";
 import { EASE_FAST } from "@/utils/motion";
@@ -36,7 +36,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`text-sm text-fg-muted transition-colors ${EASE_FAST} hover:text-fg`}
+                      className={`inline-flex min-h-10 items-center text-sm text-fg-muted transition-colors ${EASE_FAST} hover:text-fg`}
                     >
                       {link.label}
                     </Link>
@@ -49,7 +49,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-fg-subtle">
-            © {new Date().getFullYear()} {company.legalName} All rights reserved.
+            © {copyrightYear} {company.legalName} All rights reserved.
           </p>
 
           <div className="flex items-center gap-5">
@@ -97,7 +97,7 @@ function SocialLink({
       target="_blank"
       rel="noreferrer noopener"
       aria-label={label}
-      className={`text-fg-subtle transition-colors ${EASE_FAST} hover:text-fg`}
+      className={`inline-flex h-11 w-11 items-center justify-center rounded-technical border border-transparent text-fg-subtle transition-colors ${EASE_FAST} hover:border-border hover:text-fg`}
     >
       {children}
     </a>

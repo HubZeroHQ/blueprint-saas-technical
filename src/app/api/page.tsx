@@ -21,7 +21,7 @@ export const metadata: Metadata = createMetadata({
   canonical: routes.api,
 });
 
-const AUTH_SNIPPET = `curl https://api.nexorasystems.com/v1/environments \\
+const AUTH_SNIPPET = `curl https://api.nexora.hubzero.in/v1/environments \\
   -H "Authorization: Bearer $NEXORA_API_KEY"`;
 
 const RESPONSE_SNIPPET = `{

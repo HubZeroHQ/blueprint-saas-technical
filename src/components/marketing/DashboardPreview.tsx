@@ -22,13 +22,14 @@ export function DashboardPreview({ className }: DashboardPreviewProps) {
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-technical border border-border bg-surface shadow-elevated",
+        "min-w-0 overflow-hidden border border-border bg-surface shadow-elevated",
         className
       )}
-      aria-hidden="true"
+      role="img"
+      aria-label="Nexora control plane showing three healthy services and deployment volume"
     >
-      <div className="flex items-center justify-between gap-4 border-b border-border px-4 py-3">
-        <span className="font-mono text-xs text-fg-muted">
+      <div className="flex min-w-0 items-center justify-between gap-4 overflow-hidden border-b border-border px-4 py-3">
+        <span className="min-w-0 truncate font-mono text-xs text-fg-muted">
           environments / <span className="text-fg">production-us-east</span>
         </span>
         <span className="inline-flex items-center gap-1.5 rounded-technical border border-border px-2 py-1 font-mono text-[11px] text-fg-muted">
@@ -52,15 +53,15 @@ export function DashboardPreview({ className }: DashboardPreviewProps) {
           ))}
         </div>
 
-        <div className="flex-1 space-y-4 p-4">
+        <div className="min-w-0 flex-1 space-y-4 p-4">
           <div className="grid gap-3 sm:grid-cols-3">
             {SERVICES.map((service) => (
               <div
                 key={service.name}
-                className="rounded-technical border border-border bg-bg-subtle p-3"
+                className="min-w-0 rounded-technical border border-border bg-bg-subtle p-3"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-xs text-fg">{service.name}</span>
+                  <span className="min-w-0 truncate font-mono text-xs text-fg">{service.name}</span>
                   <StatusDot tone="success" />
                 </div>
                 <p className="mt-1 font-mono text-[10px] text-fg-subtle">{service.region}</p>

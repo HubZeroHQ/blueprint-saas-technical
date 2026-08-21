@@ -5,7 +5,8 @@ export const site = {
   description:
     "Nexora Systems is the control plane platform and infrastructure teams use to provision, observe, and govern cloud infrastructure across every environment.",
 
-  url: "https://nexorasystems.com",
+  url: "https://nexora.hubzero.in",
+  contentUpdatedAt: "2026-08-21",
 
   author: {
     name: "HubZero",

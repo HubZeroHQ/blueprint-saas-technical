@@ -127,7 +127,7 @@ Everything about Nexora Systems is fictional, generated for this blueprint:
 
 - **Company, product, and team** — Nexora Systems and everyone in
   `src/data/team.ts` are invented. Contact details in `src/config/company.ts`
-  (`nexorasystems.com` addresses, social handles) are placeholders.
+  (`nexora.hubzero.in` addresses and social handles) are placeholders.
 - **Customers & case studies** — `src/data/customers.ts`. Meridian Freight,
   Lumen Analytics, Ridgeline Bank, Northfield Health, Voltage Robotics, and
   Cascade Media are fictional companies invented for this blueprint.

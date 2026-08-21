@@ -21,7 +21,7 @@ export const metadata: Metadata = createMetadata({
   canonical: routes.docs,
 });
 
-const INSTALL_SNIPPET = `curl -fsSL https://cli.nexorasystems.com/install | sh
+const INSTALL_SNIPPET = `curl -fsSL https://cli.nexora.hubzero.in/install | sh
 nexora login
 nexora init production-us-east`;
 
@@ -53,7 +53,7 @@ const CONCEPTS = [
 ];
 
 const SDKS = [
-  { name: "CLI", install: "curl -fsSL https://cli.nexorasystems.com/install | sh" },
+  { name: "CLI", install: "curl -fsSL https://cli.nexora.hubzero.in/install | sh" },
   { name: "TypeScript", install: "npm install @nexorasystems/sdk" },
   { name: "Go", install: "go get github.com/nexora-systems/nexora-go" },
   { name: "Python", install: "pip install nexora-sdk" },

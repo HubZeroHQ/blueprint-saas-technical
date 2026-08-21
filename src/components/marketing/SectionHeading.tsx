@@ -24,13 +24,13 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="font-mono text-xs uppercase tracking-wide text-accent">
+        <span className="system-label inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
           {eyebrow}
         </span>
       )}
       <h2
         className={cn(
-          "text-3xl font-semibold tracking-tight text-fg sm:text-4xl",
+          "max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-fg sm:text-4xl lg:text-[2.75rem]",
           align === "center" && "max-w-2xl"
         )}
       >

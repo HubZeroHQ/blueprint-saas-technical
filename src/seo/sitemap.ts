@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { routes } from "@/config/routes";
+import { site } from "@/config/site";
 import { blogPosts } from "@/data/blog";
 import { caseStudies } from "@/data/customers";
 
@@ -28,7 +29,7 @@ const STATIC_ROUTES: Array<{ path: string; priority: number; changeFrequency: Me
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
     url: new URL(route.path, seoDefaults.url).toString(),
-    lastModified: new Date(),
+    lastModified: site.contentUpdatedAt,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
@@ -42,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const customerEntries: MetadataRoute.Sitemap = caseStudies.map((study) => ({
     url: new URL(routes.customerDetail(study.slug), seoDefaults.url).toString(),
-    lastModified: new Date(),
+    lastModified: site.contentUpdatedAt,
     changeFrequency: "monthly",
     priority: 0.6,
   }));

@@ -8,14 +8,14 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
-    <div className="border-b border-border bg-bg-subtle">
-      <Container className="flex flex-col gap-4 py-16 lg:py-20">
+    <div className="technical-grid relative overflow-hidden border-b border-border bg-bg-subtle">
+      <Container className="relative flex min-h-[20rem] flex-col justify-end gap-5 py-16 lg:min-h-[24rem] lg:py-20">
         {eyebrow && (
-          <span className="font-mono text-xs uppercase tracking-wide text-accent">
+          <span className="system-label inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
             {eyebrow}
           </span>
         )}
-        <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+        <h1 className="max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-fg sm:text-5xl lg:text-6xl">
           {title}
         </h1>
         {description && (

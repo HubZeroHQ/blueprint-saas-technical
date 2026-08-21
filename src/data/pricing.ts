@@ -17,8 +17,8 @@ export const pricingPlans: PricingPlan[] = [
     description: "For small teams provisioning their first shared environments.",
     price: "$0",
     priceSuffix: "/month",
-    cta: "Start free",
-    href: "/contact",
+    cta: "View quickstart",
+    href: "/docs/quickstart",
     features: [
       "Up to 3 environments",
       "1 cloud provider",
@@ -33,8 +33,8 @@ export const pricingPlans: PricingPlan[] = [
     description: "For platform teams running production workloads across clouds.",
     price: "$490",
     priceSuffix: "/month",
-    cta: "Start free trial",
-    href: "/contact",
+    cta: "Evaluate Growth",
+    href: "/docs/quickstart",
     highlighted: true,
     features: [
       "Unlimited environments",

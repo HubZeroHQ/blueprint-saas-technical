@@ -106,8 +106,8 @@ export function Navbar() {
 
             <ThemeToggle className="hidden lg:inline-flex" />
 
-            <Button href={routes.pricing} size="sm" className="hidden lg:inline-flex">
-              Start free trial
+            <Button href={routes.docsQuickstart} size="sm" className="hidden lg:inline-flex">
+              Run quickstart
             </Button>
 
             <button

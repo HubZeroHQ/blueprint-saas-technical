@@ -93,8 +93,8 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
           <Button href={routes.contact} variant="secondary" size="lg" onClick={onClose}>
             Contact sales
           </Button>
-          <Button href={routes.pricing} variant="primary" size="lg" onClick={onClose}>
-            Start free trial
+          <Button href={routes.docsQuickstart} variant="primary" size="lg" onClick={onClose}>
+            Run quickstart
           </Button>
         </div>
       </nav>

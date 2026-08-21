@@ -78,6 +78,10 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      <p className="border-l-2 border-accent pl-4 text-sm leading-relaxed text-fg-muted">
+        This blueprint has no message backend. Continue to validate these fields and open a
+        pre-filled email in your own mail application; nothing is stored by this site.
+      </p>
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <Label htmlFor="contact-name">Name</Label>
@@ -131,7 +135,7 @@ export function ContactForm() {
       </div>
 
       <Button type="submit" size="lg" className="w-fit">
-        Send message
+        Open email draft
       </Button>
     </form>
   );

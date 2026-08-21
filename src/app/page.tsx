@@ -160,7 +160,7 @@ export default function HomePage() {
                 default.
               </p>
             </div>
-            <Button href={routes.security} variant="secondary" size="lg" className="shrink-0">
+            <Button href={routes.security} variant="secondary" size="lg" className="w-full sm:w-auto lg:shrink-0">
               Review our security program
             </Button>
           </div>
