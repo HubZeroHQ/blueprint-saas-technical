@@ -1,3 +1,5 @@
+const locale = "en-US";
+
 export const site = {
   name: "Nexora Systems",
   shortName: "Nexora",
@@ -6,7 +8,9 @@ export const site = {
     "Nexora Systems is the control plane platform and infrastructure teams use to provision, observe, and govern cloud infrastructure across every environment.",
 
   url: "https://nexora.hubzero.in",
-  contentUpdatedAt: "2026-08-21",
+  locale,
+  ogLocale: locale.replace("-", "_"),
+  contentUpdated: "2026-08-21",
 
   author: {
     name: "HubZero",

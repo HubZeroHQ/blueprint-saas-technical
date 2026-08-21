@@ -85,7 +85,7 @@ src/
   data/                    Business content — features, pricing, blog, customers, team, careers
   providers/                AppProvider, ThemeProvider (light/dark)
   seo/                      createMetadata, structured data builders, sitemap, robots
-  styles/                   Design tokens (tokens.css)
+  styles/                   Infrastructure and design-language tokens
   utils/                    cn(), shared motion timing constants
 ```
 
@@ -105,7 +105,7 @@ To rebrand this blueprint for a real company:
    `src/components/brand/OgMark.tsx` (the satori-safe version used by
    `icon.tsx`, `apple-icon.tsx`, and `opengraph-image.tsx`). Both encode the
    same geometry; update both together.
-3. **Design tokens** — `src/styles/tokens.css` for color, radius, shadow, and
+3. **Design tokens** — `src/styles/design-language.css` for color, radius, shadow, and
    motion. `src/app/globals.css` maps these onto Tailwind utilities via
    `@theme inline`.
 4. **Navigation & footer** — `src/config/navigation.ts`, `src/config/footer.ts`.
@@ -152,7 +152,7 @@ Everything about Nexora Systems is fictional, generated for this blueprint:
 - **Tokens** — one radius, hairline borders, a single elevated-shadow value,
   a neutral scale plus one accent and a status palette (success/warning/danger)
   reused for both UI chrome and data (latency, uptime, deploy charts).
-  `src/styles/tokens.css`.
+  `src/styles/design-language.css`.
 - **Typography** — Inter (UI/body) and JetBrains Mono (code, data,
   identifiers), loaded via `next/font/google` in `src/app/layout.tsx`.
 - **Motion** — `src/utils/motion.ts` exports the shared duration/easing

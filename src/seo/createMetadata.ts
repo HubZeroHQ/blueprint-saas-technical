@@ -13,7 +13,7 @@ interface CreateMetadataOptions {
 export function createMetadata({
   title,
   description,
-  image,
+  image = "/opengraph-image",
   canonical,
   keywords = [],
 }: CreateMetadataOptions = {}): Metadata {
@@ -23,7 +23,9 @@ export function createMetadata({
   // duplicate it ("Pricing | Nexora Systems | Nexora Systems").
   // openGraph/twitter titles use this same raw value since their site
   // name is already carried by `openGraph.siteName` below.
-  const pageTitle = title ?? seoDefaults.siteName;
+  const socialTitle = title
+    ? `${title} | ${seoDefaults.siteName}`
+    : seoDefaults.title;
 
   const pageDescription =
     description ?? seoDefaults.description;
@@ -33,7 +35,7 @@ export function createMetadata({
     : seoDefaults.url;
 
   return {
-    title: pageTitle,
+    title: title ?? { absolute: seoDefaults.title },
 
     description: pageDescription,
 
@@ -48,18 +50,16 @@ export function createMetadata({
       locale: seoDefaults.locale,
       url,
       siteName: seoDefaults.siteName,
-      title: pageTitle,
+      title: socialTitle,
       description: pageDescription,
-      // When omitted, Next falls back to the root `opengraph-image`
-      // file-convention route so every page shares one branded image.
-      ...(image ? { images: [{ url: image }] } : {}),
+      images: [{ url: image }],
     },
 
     twitter: {
       card: seoDefaults.twitterCard,
-      title: pageTitle,
+      title: socialTitle,
       description: pageDescription,
-      ...(image ? { images: [image] } : {}),
+      images: [image],
     },
   };
 }

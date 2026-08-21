@@ -5,9 +5,12 @@ import "./globals.css";
 
 import { Footer } from "@/components/navigation/Footer";
 import { Navbar } from "@/components/navigation/Navbar";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { metadata } from "@/config/metadata";
+import { site } from "@/config/site";
 import { AppProvider } from "@/providers/AppProvider";
 import { themeInitScript } from "@/providers/ThemeProvider";
+import { organizationSchema } from "@/seo/structuredData";
 import { EASE_FAST } from "@/utils/motion";
 
 export { metadata };
@@ -31,11 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang={site.locale}
       className={`${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <body>
+        <JsonLd data={organizationSchema()} />
         <Script
           id="theme-init"
           strategy="beforeInteractive"

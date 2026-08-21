@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.0 — 2026-08-22
+
+- Synchronized the managed Blueprint Core knowledge package to v2.1.0.
+- Aligned shared dependencies, hooks, Reveal, tokens, SEO, lifecycle semantics, JSON-LD, and Skills with Blueprint Base v2.1.0.
+- Preserved the Nexora Technical design language, theme system, content model, and honest guided-quickstart boundary.
+
 ## 2.0.0 — 2026-08-21
 
 - Synchronized the managed Blueprint Core knowledge package to v2.0.0.

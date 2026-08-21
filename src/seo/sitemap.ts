@@ -29,21 +29,21 @@ const STATIC_ROUTES: Array<{ path: string; priority: number; changeFrequency: Me
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
     url: new URL(route.path, seoDefaults.url).toString(),
-    lastModified: site.contentUpdatedAt,
+    lastModified: new Date(site.contentUpdated),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: new URL(routes.blogPost(post.slug), seoDefaults.url).toString(),
-    lastModified: post.date,
+    lastModified: new Date(post.date),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
   const customerEntries: MetadataRoute.Sitemap = caseStudies.map((study) => ({
     url: new URL(routes.customerDetail(study.slug), seoDefaults.url).toString(),
-    lastModified: site.contentUpdatedAt,
+    lastModified: new Date(site.contentUpdated),
     changeFrequency: "monthly",
     priority: 0.6,
   }));

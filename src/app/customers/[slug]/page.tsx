@@ -7,7 +7,7 @@ import { Section } from "@/components/layout/Section";
 import { CTASection } from "@/components/marketing/CTASection";
 import { PageHeader } from "@/components/marketing/PageHeader";
 import { StatsRow } from "@/components/marketing/StatsRow";
-import { StructuredData } from "@/components/seo/StructuredData";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { Avatar } from "@/components/ui/Avatar";
 import { routes } from "@/config/routes";
 import { caseStudies } from "@/data/customers";
@@ -45,7 +45,7 @@ export default async function CustomerPage({ params }: CustomerPageProps) {
 
   return (
     <Page>
-      <StructuredData
+      <JsonLd
         data={breadcrumbSchema([
           { name: "Customers", path: routes.customers },
           { name: study.name, path: routes.customerDetail(study.slug) },

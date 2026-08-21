@@ -1,4 +1,4 @@
-import { StructuredData } from "@/components/seo/StructuredData";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { Accordion, type AccordionItem } from "@/components/ui/Accordion";
 
 interface FAQSectionProps {
@@ -21,7 +21,7 @@ export function FAQSection({ items }: FAQSectionProps) {
 
   return (
     <>
-      <StructuredData data={structuredData} />
+      <JsonLd data={structuredData} />
       <Accordion items={items} />
     </>
   );

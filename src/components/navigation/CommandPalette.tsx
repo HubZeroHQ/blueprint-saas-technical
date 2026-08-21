@@ -11,6 +11,7 @@ import {
 } from "react";
 
 import { routes } from "@/config/routes";
+import { useDismissible } from "@/hooks/useDismissible";
 import { useTheme } from "@/providers/ThemeProvider";
 import { cn } from "@/utils/cn";
 import { EASE_FAST } from "@/utils/motion";
@@ -54,6 +55,8 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
   const router = useRouter();
   const { toggleTheme } = useTheme();
 
+  useDismissible({ open, onDismiss: onClose });
+
   // Reset search state whenever the palette transitions open/closed.
   // Adjusting state directly during render (rather than in an effect)
   // avoids an extra render pass — see the React docs on resetting
@@ -76,15 +79,6 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
-  }, [open]);
-
-  useEffect(() => {
-    if (!open) return;
-
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [open]);
 
   function handleDialogKeyDown(event: ReactKeyboardEvent<HTMLDivElement>) {
@@ -134,8 +128,6 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
       event.preventDefault();
       const command = results[activeIndex];
       if (command) runCommand(command);
-    } else if (event.key === "Escape") {
-      onClose();
     }
   }
 

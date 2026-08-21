@@ -28,8 +28,8 @@ export default function BlogPage() {
 
       <Section>
         <Container className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post, index) => (
-            <Reveal key={post.slug} index={index} step={60}>
+          {blogPosts.map((post) => (
+            <Reveal key={post.slug}>
               <BlogCard post={post} />
             </Reveal>
           ))}

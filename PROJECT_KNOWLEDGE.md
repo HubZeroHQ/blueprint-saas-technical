@@ -7,8 +7,8 @@
 - Composed architecture: `documentation`
 - Modules: Editorial, Legal, Contact, About, Careers, FAQ
 - Design language: `technical`
-- Blueprint Core: `2.0.0`
-- Focused blueprint release: `2.0.0`
+- Blueprint Core: `2.1.0`
+- Focused blueprint release: `2.1.0`
 - Demo identity: `https://nexora.hubzero.in`
 
 ## Durable decisions
@@ -30,7 +30,7 @@
 ## Lessons learned
 
 - A visually credible signup CTA is still misleading when the reference blueprint cannot create an account; route the visitor to a genuinely usable product demonstration.
-- Observer-driven reveal systems must render their final visible state on the server. Hydration agreement alone is insufficient when JavaScript can fail.
+- Reveal content is server-rendered and enhanced with CSS scroll-driven motion; JavaScript failure and unsupported browsers retain visible content.
 - The smallest target width exposed overflow that was invisible at common mobile widths: long CTA labels and nested monospace identifiers both need explicit containment.
 - A Technical redesign gains more identity from connected system structure and encoded labels than from gradients, glow, or more card variants.
 - Runtime dependency review matters independently of compilation; the baseline built successfully while installed packages still carried high-severity advisories.

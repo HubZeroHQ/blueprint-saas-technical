@@ -34,8 +34,8 @@ export default function CareersPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Benefits" title="How we support the team" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit, index) => (
-              <Reveal key={benefit.title} index={index} step={60}>
+            {benefits.map((benefit) => (
+              <Reveal key={benefit.title}>
                 <Card interactive className="flex h-full flex-col gap-2">
                   <h3 className="text-sm font-semibold text-fg">{benefit.title}</h3>
                   <p className="text-sm leading-relaxed text-fg-muted">{benefit.description}</p>

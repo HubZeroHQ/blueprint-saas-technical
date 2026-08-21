@@ -80,8 +80,8 @@ export default function SecurityPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Practices" title="How Nexora protects your infrastructure" />
           <div className="grid gap-4 sm:grid-cols-2">
-            {PILLARS.map((pillar, index) => (
-              <Reveal key={pillar.title} index={index} step={60}>
+            {PILLARS.map((pillar) => (
+              <Reveal key={pillar.title}>
                 <Card interactive className="flex h-full flex-col gap-4">
                   <span
                     className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}
@@ -101,8 +101,8 @@ export default function SecurityPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Compliance" title="Certifications and compliance program" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CERTIFICATIONS.map((cert, index) => (
-              <Reveal key={cert.name} index={index} step={60}>
+            {CERTIFICATIONS.map((cert) => (
+              <Reveal key={cert.name}>
                 <Card interactive className="flex h-full flex-col gap-2">
                   <span className="font-mono text-xs uppercase tracking-wide text-accent">
                     {cert.name}

@@ -13,11 +13,11 @@ export function FeatureGrid({ features, className }: FeatureGridProps) {
   return (
     <div className={className}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((feature, index) => {
+        {features.map((feature) => {
           const Icon = ICONS[feature.icon];
 
           return (
-            <Reveal key={feature.id} index={index} step={60}>
+            <Reveal key={feature.id}>
               <Card interactive className="flex h-full flex-col gap-4">
                 <span
                   className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}

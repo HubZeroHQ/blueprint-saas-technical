@@ -10,7 +10,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { routes } from "@/config/routes";
 import { createMetadata } from "@/seo/createMetadata";
 import { breadcrumbSchema } from "@/seo/structuredData";
-import { StructuredData } from "@/components/seo/StructuredData";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 export const metadata: Metadata = createMetadata({
   title: "Quickstart",
@@ -68,7 +68,7 @@ compute:
 export default function QuickstartPage() {
   return (
     <Page>
-      <StructuredData
+      <JsonLd
         data={breadcrumbSchema([
           { name: "Documentation", path: routes.docs },
           { name: "Quickstart", path: routes.docsQuickstart },
@@ -85,7 +85,8 @@ export default function QuickstartPage() {
         <Container className="mx-auto max-w-3xl">
           <ol className="flex flex-col gap-12">
             {STEPS.map((step, index) => (
-              <Reveal key={step.title} as="li" className="flex flex-col gap-4">
+              <li key={step.title}>
+                <Reveal className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-technical bg-accent-muted font-mono text-sm text-accent">
                     {index + 1}
@@ -96,7 +97,8 @@ export default function QuickstartPage() {
                 <div className="pl-11">
                   <CodeBlock code={step.code} filename={step.filename} />
                 </div>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
 

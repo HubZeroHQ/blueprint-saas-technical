@@ -54,8 +54,8 @@ export default function AboutPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="What we believe" title="The values that shape how we build" />
           <div className="grid gap-4 sm:grid-cols-2">
-            {company.values.map((value, index) => (
-              <Reveal key={value.name} index={index} step={60}>
+            {company.values.map((value) => (
+              <Reveal key={value.name}>
                 <Card interactive className="flex h-full flex-col gap-3">
                   <h3 className="text-base font-semibold text-fg">{value.name}</h3>
                   <p className="text-sm leading-relaxed text-fg-muted">{value.description}</p>
@@ -70,8 +70,8 @@ export default function AboutPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Team" title="The people building Nexora" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((member, index) => (
-              <Reveal key={member.name} index={index} step={60}>
+            {team.map((member) => (
+              <Reveal key={member.name}>
                 <Card interactive className="flex h-full flex-col gap-4">
                   <Avatar name={member.name} />
                   <div className="flex flex-col gap-1">

@@ -120,8 +120,8 @@ export default function ApiPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Rate limits" title="Requests per plan" />
           <div className="grid gap-4 sm:grid-cols-3">
-            {RATE_LIMITS.map((tier, index) => (
-              <Reveal key={tier.plan} index={index} step={60}>
+            {RATE_LIMITS.map((tier) => (
+              <Reveal key={tier.plan}>
                 <Card interactive className="flex h-full flex-col gap-2">
                   <span className="font-mono text-xs uppercase tracking-wide text-fg-subtle">
                     {tier.plan}

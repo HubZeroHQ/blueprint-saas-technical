@@ -11,8 +11,8 @@ interface IntegrationGridProps {
 export function IntegrationGrid({ integrations }: IntegrationGridProps) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {integrations.map((integration, index) => (
-        <Reveal key={integration.name} index={index} step={60}>
+      {integrations.map((integration) => (
+        <Reveal key={integration.name}>
           <Card interactive className="flex h-full items-start gap-3.5">
             <span
               className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-technical bg-bg-subtle text-fg-muted transition-colors ${EASE_FAST} group-hover:bg-accent-muted group-hover:text-accent`}

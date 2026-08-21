@@ -6,7 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { Page } from "@/components/layout/Page";
 import { Section } from "@/components/layout/Section";
 import { PageHeader } from "@/components/marketing/PageHeader";
-import { StructuredData } from "@/components/seo/StructuredData";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { Avatar } from "@/components/ui/Avatar";
 import { routes } from "@/config/routes";
 import { site } from "@/config/site";
@@ -76,8 +76,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <Page>
-      <StructuredData data={articleSchema} />
-      <StructuredData
+      <JsonLd data={articleSchema} />
+      <JsonLd
         data={breadcrumbSchema([
           { name: "Blog", path: routes.blog },
           { name: post.title, path: routes.blogPost(post.slug) },

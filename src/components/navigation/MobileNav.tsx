@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 import { Button } from "@/components/ui/Button";
 import type { NavigationItem } from "@/config/navigation";
 import { isRouteActive, routes } from "@/config/routes";
+import { useDismissible } from "@/hooks/useDismissible";
 import { cn } from "@/utils/cn";
 import { EASE_FAST, EASE_NORMAL } from "@/utils/motion";
 
@@ -19,21 +19,7 @@ interface MobileNavProps {
 export function MobileNav({ open, onClose, items }: MobileNavProps) {
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (!open) return;
-
-    document.body.style.overflow = "hidden";
-
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onClose();
-    }
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [open, onClose]);
+  useDismissible({ open, onDismiss: onClose });
 
   return (
     <div

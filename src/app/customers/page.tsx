@@ -36,8 +36,8 @@ export default function CustomersPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Case studies" title="Read how teams run on Nexora" />
           <div className="grid gap-6 lg:grid-cols-2">
-            {caseStudies.map((study, index) => (
-              <Reveal key={study.slug} index={index} step={60}>
+            {caseStudies.map((study) => (
+              <Reveal key={study.slug}>
                 <Link
                   href={routes.customerDetail(study.slug)}
                   className={cn(
@@ -66,8 +66,8 @@ export default function CustomersPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Trusted by" title="Teams running on Nexora" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {customers.map((customer, index) => (
-              <Reveal key={customer.name} index={index} step={60}>
+            {customers.map((customer) => (
+              <Reveal key={customer.name}>
                 <Card interactive className="flex h-full flex-col gap-1.5">
                   <span className="font-mono text-base text-fg">{customer.name}</span>
                   <span className="text-xs text-fg-subtle">{customer.industry}</span>

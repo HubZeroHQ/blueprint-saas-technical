@@ -8,6 +8,7 @@ import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
 import { isRouteActive, routes } from "@/config/routes";
+import { useScrolled } from "@/hooks/useScrolled";
 import { cn } from "@/utils/cn";
 import { EASE_FAST } from "@/utils/motion";
 
@@ -15,24 +16,8 @@ import { CommandPalette } from "./CommandPalette";
 import { MobileNav } from "./MobileNav";
 import { ThemeToggle } from "./ThemeToggle";
 
-function useScrolled(threshold = 8) {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY > threshold);
-    }
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [threshold]);
-
-  return scrolled;
-}
-
 export function Navbar() {
-  const scrolled = useScrolled();
+  const scrolled = useScrolled(8);
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);

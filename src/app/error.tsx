@@ -22,7 +22,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
   return (
     <Page className="flex min-h-[70vh] items-center">
-      <Container className="flex flex-col items-center gap-6 text-center">
+      <Container role="alert" aria-live="assertive" className="flex flex-col items-center gap-6 text-center">
         <span className="font-mono text-sm text-danger">ERROR 500</span>
         <h1 className="text-5xl font-semibold tracking-tight text-fg sm:text-6xl">
           Something went wrong

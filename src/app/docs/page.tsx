@@ -89,8 +89,8 @@ export default function DocsPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="Core concepts" title="The vocabulary Nexora is built on" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CONCEPTS.map((concept, index) => (
-              <Reveal key={concept.title} index={index} step={60}>
+            {CONCEPTS.map((concept) => (
+              <Reveal key={concept.title}>
                 <Card interactive className="flex h-full flex-col gap-4">
                   <span
                     className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}
@@ -110,8 +110,8 @@ export default function DocsPage() {
         <Container className="flex flex-col gap-10">
           <SectionHeading eyebrow="SDKs & CLI" title="Client libraries for every language in your stack" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {SDKS.map((sdk, index) => (
-              <Reveal key={sdk.name} index={index} step={60}>
+            {SDKS.map((sdk) => (
+              <Reveal key={sdk.name}>
                 <Card interactive className="flex h-full flex-col gap-3">
                   <h3 className="text-sm font-semibold text-fg">{sdk.name}</h3>
                   <code className="break-words font-mono text-xs leading-relaxed text-fg-muted">

@@ -10,8 +10,8 @@ interface TestimonialGridProps {
 export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
-      {testimonials.map((testimonial, index) => (
-        <Reveal key={testimonial.author} index={index} step={60}>
+      {testimonials.map((testimonial) => (
+        <Reveal key={testimonial.author}>
           <Card interactive className="flex h-full flex-col justify-between gap-6">
             <p className="text-sm leading-relaxed text-fg">&ldquo;{testimonial.quote}&rdquo;</p>
             <div className="flex items-center gap-3">

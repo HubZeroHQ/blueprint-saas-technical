@@ -1,11 +1,9 @@
 import { company } from "@/config/company";
 import { site } from "@/config/site";
+import { organizationJsonLd } from "./jsonLd";
 
 export function organizationSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: site.name,
+  return organizationJsonLd({
     legalName: company.legalName,
     url: site.url,
     // Schema.org recommends a logo of at least 112x112px; the 32x32
@@ -19,7 +17,7 @@ export function organizationSchema() {
       email: company.contact.support,
       contactType: "customer support",
     },
-  };
+  });
 }
 
 export function softwareApplicationSchema() {

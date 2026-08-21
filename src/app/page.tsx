@@ -12,7 +12,7 @@ import { PricingTable } from "@/components/marketing/PricingTable";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { StatsRow } from "@/components/marketing/StatsRow";
 import { TestimonialGrid } from "@/components/marketing/TestimonialGrid";
-import { StructuredData } from "@/components/seo/StructuredData";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -25,7 +25,6 @@ import { integrations } from "@/data/integrations";
 import { pricingPlans } from "@/data/pricing";
 import { testimonials } from "@/data/testimonials";
 import {
-  organizationSchema,
   softwareApplicationSchema,
   websiteSchema,
 } from "@/seo/structuredData";
@@ -66,9 +65,8 @@ const STATS = [
 export default function HomePage() {
   return (
     <Page>
-      <StructuredData data={organizationSchema()} />
-      <StructuredData data={softwareApplicationSchema()} />
-      <StructuredData data={websiteSchema()} />
+      <JsonLd data={softwareApplicationSchema()} />
+      <JsonLd data={websiteSchema()} />
 
       <Hero />
       <LogoCloud />
@@ -82,8 +80,8 @@ export default function HomePage() {
           />
 
           <div className="grid gap-4 sm:grid-cols-3">
-            {PILLARS.map((pillar, index) => (
-              <Reveal key={pillar.title} index={index} step={60}>
+            {PILLARS.map((pillar) => (
+              <Reveal key={pillar.title}>
                 <Card interactive className="flex h-full flex-col gap-4">
                   <span
                     className={`flex h-9 w-9 items-center justify-center rounded-technical bg-accent-muted text-accent transition-colors ${EASE_FAST} group-hover:bg-accent group-hover:text-accent-fg`}
